@@ -1,5 +1,6 @@
 package com.brasiledu.apialuno.controller
 
+import com.brasiledu.apialuno.model.Aluno
 import com.brasiledu.apialuno.model.Usuario
 import com.brasiledu.apialuno.repository.UsuarioRepository
 import com.brasiledu.apialuno.service.UsuarioService
@@ -17,8 +18,9 @@ class UserController @Autowired constructor(var usuarioService: UsuarioService){
     }
 
     @PostMapping
-    fun saveAluno(@RequestBody usuario: Usuario) {
-        usuarioService.save(usuario)
+    fun saveAluno(@RequestBody usuario: Aluno) {
+        println(usuario)
+        //usuarioService.save(usuario)
     }
 
 }

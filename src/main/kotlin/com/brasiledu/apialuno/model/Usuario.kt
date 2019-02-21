@@ -12,4 +12,4 @@ data class Usuario constructor(
         @Id
         @GeneratedValue
         var id : Long,
-        var nome: String):Serializable
+        var login: String): Serializable
