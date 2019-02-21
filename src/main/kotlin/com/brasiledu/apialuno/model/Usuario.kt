@@ -8,7 +8,7 @@ import javax.persistence.Table
 
 @Entity
 @Table(name = "usuario")
-data class Usuario(
+data class Usuario constructor(
         @Id
         @GeneratedValue
         var id : Long,
