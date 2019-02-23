@@ -12,6 +12,10 @@ class UsuarioService @Autowired constructor(var usuarioRepository: UsuarioReposi
         usuarioRepository.save(usuario)
     }
 
+    fun recuperarUsuario(userId: Long){
+        usuarioRepository.findById(userId)
+    }
+
     fun list(): MutableIterable<Usuario> {
         return usuarioRepository.findAll()
     }
