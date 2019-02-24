@@ -5,11 +5,11 @@ import javax.persistence.*
 
 @Entity
 @Table(name = "aluno")
-class Aluno constructor(
+data class Aluno constructor(
         @Id
-        @GeneratedValue
-        var id : Long,
-        var nome: String,
-        var cpf: String,
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        var id : Long = 0,
+        var ra: String = "",
         @OneToOne
-        var usuario: Usuario): Serializable
+        @JoinColumn(name = "usuario_id")
+        var usuario: Usuario = Usuario()): Serializable

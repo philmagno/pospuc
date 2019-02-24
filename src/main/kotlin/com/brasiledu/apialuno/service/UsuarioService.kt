@@ -33,7 +33,7 @@ class UsuarioService @Autowired constructor(var usuarioRepository: UsuarioReposi
     private fun getGrantedAuthorities(usuario: Usuario): Collection<GrantedAuthority> {
         var authorities = mutableListOf<GrantedAuthority>()
 
-        for (role in usuario.role.split(",")) {
+        for (role in usuario.role!!.split(",")) {
             authorities.add(GrantedAuthority {role})
         }
 

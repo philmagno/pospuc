@@ -90,6 +90,11 @@
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-config</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>com.amazonaws</groupId>
+			<artifactId>aws-java-sdk-sqs</artifactId>
+			<version>1.11.344</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -100,6 +105,21 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>build-info</goal>
+						</goals>
+						<configuration>
+							<additionalProperties>
+								<encoding.source>UTF-8</encoding.source>
+								<encoding.reporting>UTF-8</encoding.reporting>
+								<java.source>${java.version}</java.source>
+								<java.target>${java.version}</java.target>
+							</additionalProperties>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 			<plugin>
 				<groupId>org.jetbrains.kotlin</groupId>
@@ -107,7 +127,9 @@
 				<version>${kotlin.version}</version>
 				<configuration>
 					<compilerPlugins>
+						<plugin>spring</plugin>
 						<plugin>jpa</plugin>
+						<plugin>all-open</plugin>
 					</compilerPlugins>
 				</configuration>
 			</plugin>
@@ -135,6 +157,11 @@
 						<groupId>org.jetbrains.kotlin</groupId>
 						<artifactId>kotlin-maven-noarg</artifactId>
 						<version>${kotlin.version}</version>
+					</dependency>
+					<dependency>
+						<groupId>com.amazonaws</groupId>
+						<artifactId>aws-java-sdk-sqs</artifactId>
+						<version>1.11.500</version>
 					</dependency>
 				</dependencies>
 			</plugin>

@@ -8,15 +8,15 @@ import javax.persistence.*
 @Table(name = "usuario")
 data class Usuario constructor(
         @Id
-        @GeneratedValue
-        var id : Long,
-        var login: String,
-        var senha: String,
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        var id : Long = 0,
+        var login: String?? = null,
+        var senha: String?? = null,
         @Column(name = "data_nascimento")
-        var dataNascimento: Date,
-        var nome: String,
-        var cpf: String,
-        var email: String,
+        var dataNascimento: Date?? = null,
+        var nome: String?? = null,
+        var cpf: String?? = null,
+        var email: String?? = null,
         @Column(name = "ultimo_acesso")
-        var ultimoAcesso: Date,
-        var role: String): Serializable
+        var ultimoAcesso: Date?? = null,
+        var role: String?? = null): Serializable
