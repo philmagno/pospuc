@@ -2,7 +2,7 @@
 
 --changeset philippe:1
 CREATE TABLE IF NOT EXISTS usuario (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `login` VARCHAR(100) NULL,
   `senha` VARCHAR(500) NULL,
   `data_nascimento` DATE NULL,
@@ -10,13 +10,14 @@ CREATE TABLE IF NOT EXISTS usuario (
   `cpf` VARCHAR(45) NULL,
   `email` VARCHAR(100) NULL,
   `ultimo_acesso` DATETIME NULL,
+  `role` VARCHAR(45) NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 --rollback drop usuario;
 
 --changeset philippe:2
 CREATE TABLE IF NOT EXISTS aluno (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `RA` VARCHAR(45) NULL,
   `usuario_id` INT NOT NULL,
   PRIMARY KEY (`id`),
@@ -30,7 +31,7 @@ ENGINE = InnoDB;
 
 --changeset philippe:3
 CREATE TABLE IF NOT EXISTS materia (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(150) NULL,
   `carga_horaria` INT NULL,
   `tipo_aula` VARCHAR(100) NULL,
@@ -41,7 +42,7 @@ ENGINE = InnoDB;
 
 --changeset philippe:4
 CREATE TABLE IF NOT EXISTS `faculdade`.`curso` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `curriculo_id` INT NOT NULL,
   `modalidade` VARCHAR(45) NULL,
   `duracao` VARCHAR(45) NULL,
@@ -63,7 +64,7 @@ ENGINE = InnoDB;
 
 --changeset philippe:5
 CREATE TABLE IF NOT EXISTS `faculdade`.`grade` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `materia_id` INT NOT NULL,
   `curso_id` INT NOT NULL,
   PRIMARY KEY (`id`),
@@ -84,7 +85,7 @@ ENGINE = InnoDB;
 
 --changeset philippe:6
 CREATE TABLE IF NOT EXISTS `faculdade`.`turma` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `quantidade_alunos` VARCHAR(45) NULL,
   `max_alunos` INT NULL,
   `min_alunos` INT NULL,
@@ -117,7 +118,7 @@ ENGINE = InnoDB;
 
 --changeset philippe:7
 CREATE TABLE IF NOT EXISTS `faculdade`.`matricula` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `turma_id` INT NOT NULL,
   `aluno_id` INT NOT NULL,
   PRIMARY KEY (`id`),
@@ -136,7 +137,7 @@ ENGINE = InnoDB;
 
 --changeset philippe:8
 CREATE TABLE IF NOT EXISTS `faculdade`.`mensalidade` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `aluno_id` INT NOT NULL,
   `data_vencimento` DATE NOT NULL,
   `data_pagamento` DATE NULL,
