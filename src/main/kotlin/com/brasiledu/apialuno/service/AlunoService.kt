@@ -21,7 +21,7 @@ class AlunoService @Autowired constructor(var alunoRepository: AlunoRepository,
 
     private fun persistirAluno(aluno: AlunoDTO) {
         var usuario = Usuario(login = aluno.login!!)
-        usuarioRepository.save(usuario)
+        //usuarioRepository.save(usuario)
 
         var aluno = Aluno(ra = aluno.ra!!, usuario = usuario)
         alunoRepository.save(aluno)

@@ -10,6 +10,6 @@ data class Aluno constructor(
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         var id : Long = 0,
         var ra: String = "",
-        @OneToOne
+        @OneToOne(cascade = [CascadeType.ALL])
         @JoinColumn(name = "usuario_id")
         var usuario: Usuario = Usuario()): Serializable
